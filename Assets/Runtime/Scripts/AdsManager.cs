@@ -18,23 +18,31 @@ namespace Ads
 #elif UNITY_IOS
             appID = AppAdsSettings.Instance.iOSAppID;
 #endif
+            IronSource.Agent.validateIntegration();
 
             IronSource.Agent.init(appID);
-
-            if(AppAdsSettings.Instance.UseBanner)
-                IronSource.Agent.loadBanner(AppAdsSettings.Instance.BannerSize, AppAdsSettings.Instance.BannerPosition);
         }
 
         private void OnEnable()
         {
+            IronSourceEvents.onSdkInitializationCompletedEvent += OnSdkInitializationCompletedEvent;
+
             if (AppAdsSettings.Instance.UseBanner)
                 IronSourceEvents.onBannerAdLoadedEvent += OnBannerAdLoadedEvent;
         }
 
         private void OnDisable()
         {
+            IronSourceEvents.onSdkInitializationCompletedEvent -= OnSdkInitializationCompletedEvent;
+
             if (AppAdsSettings.Instance.UseBanner)
                 IronSourceEvents.onBannerAdLoadedEvent -= OnBannerAdLoadedEvent;
+        }
+
+        private void OnSdkInitializationCompletedEvent()
+        {
+            if (AppAdsSettings.Instance.UseBanner)
+                IronSource.Agent.loadBanner(AppAdsSettings.Instance.BannerSize, AppAdsSettings.Instance.BannerPosition);
         }
 
         private void OnBannerAdLoadedEvent()

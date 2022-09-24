@@ -13,6 +13,6 @@ namespace Ads
 
         [Header("Banner Settings")]
         public bool UseBanner;
-        [ConditionalHide("UseBanner")] public BannerSettings[] Banners;
+        [ConditionalHide("UseBanner")] public BannerSettings Banner;
     }
 }

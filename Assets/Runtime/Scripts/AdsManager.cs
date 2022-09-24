@@ -44,12 +44,44 @@ namespace Ads
         {
             Debug.Log("SDK Init");
             if (AppAdsSettings.Instance.UseBanner)
-                IronSource.Agent.loadBanner(AppAdsSettings.Instance.BannerSize, AppAdsSettings.Instance.BannerPosition);
+                LoadBanner();
+        }
+
+        private void LoadBanner()
+        {
+            BannerSettings banner = AppAdsSettings.Instance.Banner;
+
+            IronSourceBannerSize size = null;
+
+            switch (banner.Size)
+            {
+                case BannerSettings.BannerSize.BANNER:
+                    size = IronSourceBannerSize.BANNER;
+                    break;
+                case BannerSettings.BannerSize.LARGE:
+                    size = IronSourceBannerSize.LARGE;
+                    break;
+                case BannerSettings.BannerSize.RECTANGLE:
+                    size = IronSourceBannerSize.RECTANGLE;
+                    break;
+                case BannerSettings.BannerSize.SMART:
+                    size = IronSourceBannerSize.SMART;
+                    break;
+                case BannerSettings.BannerSize.CUSTOM:
+                    size = new IronSourceBannerSize((int)banner.CustomSize.x, (int)banner.CustomSize.y);
+                    break;
+            }
+
+            IronSource.Agent.loadBanner(size, banner.BannerPosition);
+
+            if (!banner.ShowImmediate)
+                IronSource.Agent.hideBanner();
         }
 
         private void OnBannerAdLoadedEvent()
         {
             Debug.Log("Banner Loaded");
         }
+
     }
 }

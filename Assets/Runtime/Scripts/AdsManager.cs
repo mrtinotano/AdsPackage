@@ -7,10 +7,8 @@ namespace Ads
 {
     public class AdsManager : Singleton<AdsManager>
     {
-        protected override void Awake()
+        private void Start()
         {
-            base.Awake();
-
             string appID = string.Empty;
 
 #if UNITY_ANDROID

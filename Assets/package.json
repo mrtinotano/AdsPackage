@@ -1,11 +1,11 @@
 {
-  "name": "com.mrtinotano.adspackage",
+  "name": "com.mrtinotano.ads",
   "version": "1.0.0",
   "displayName": "Ads Package",
   "description": "Ads Package using IronSource API",
   "unity": "2021.3",
   "dependencies": {
-    "com.mrtinotano.commonpackage": "1.0.0"
+    "com.mrtinotano.utilities": "1.0.0"
   },
   "author": {
     "name": "mrtinotano"

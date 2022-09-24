@@ -1,0 +1,16 @@
+{
+    "name": "MrTinoTano.Ads.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e218ff6df42f42e4eabc8082e432bc7b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

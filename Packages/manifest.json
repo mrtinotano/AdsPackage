@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.mrtinotano.utilitiespackage": "ssh://git@github.com/mrtinotano/UnityUtilitiesPackage.git?path=/Assets",
+    "com.mrtinotano.utilities": "ssh://git@github.com/mrtinotano/UnityUtilitiesPackage.git?path=/Assets",
     "com.unity.collab-proxy": "1.15.18",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.15",

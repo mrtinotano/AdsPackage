@@ -13,7 +13,6 @@ namespace Ads
 
         [Header("Banner Settings")]
         public bool UseBanner;
-        [ConditionalHide("UseBanner")] public IronSourceBannerSize BannerSize;
-        [ConditionalHide("UseBanner")] public IronSourceBannerPosition BannerPosition;
+        [ConditionalHide("UseBanner")] public BannerSettings[] Banners;
     }
 }
